@@ -11,124 +11,130 @@
             --green: #008659;  /* 松山新店線 */
             --brown: #9e652e;  /* 文湖線 */
             --orange: #ffa300; /* 中和新蘆線 */
-            --bg-color: #f8f9fa;
-            --text-dark: #333;
+            --bg-color: #f0f2f5;
         }
 
         body {
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
             margin: 0;
             background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
+            color: #333;
         }
 
         header {
-            background: white;
-            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 5px solid var(--blue);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        h1 {
+        header h1 {
             margin: 0;
-            color: var(--blue);
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-top: 10px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: -30px auto 50px;
             padding: 0 20px;
         }
 
-        .grid-container {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 25px;
         }
 
-        .line-card {
+        .card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-left: 10px solid #ccc;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s;
         }
 
-        .line-card:hover {
-            transform: translateY(-10px);
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        .card-header {
-            padding: 20px;
+        .card.bl { border-left-color: var(--blue); }
+        .card.r { border-left-color: var(--red); }
+        .card.g { border-left-color: var(--green); }
+        .card.br { border-left-color: var(--brown); }
+        .card.o { border-left-color: var(--orange); }
+
+        .line-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
             color: white;
             font-weight: bold;
-            font-size: 1.4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
         }
 
-        .card-content {
-            padding: 20px;
+        .title {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            color: #1a1a1a;
+        }
+
+        .desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
             flex-grow: 1;
         }
 
-        .btn-view {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 20px;
-            border-radius: 20px;
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 10px;
+            border-radius: 10px;
             font-size: 0.9rem;
             font-weight: bold;
             text-align: center;
-            border: 2px solid;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
-        /* 捷運線色彩定義 */
-        .bl { border-top: 8px solid var(--blue); }
-        .bl .card-header { background-color: var(--blue); }
-        .bl .btn-view { color: var(--blue); border-color: var(--blue); }
-        .bl .btn-view:hover { background: var(--blue); color: white; }
+        /* 按鈕樣式：Canva (淺色底) */
+        .btn-canva {
+            background: #f1f3f4;
+            color: #444;
+            border: 1px solid #ddd;
+        }
+        .btn-canva:hover { background: #e8eaed; }
 
-        .r { border-top: 8px solid var(--red); }
-        .r .card-header { background-color: var(--red); }
-        .r .btn-view { color: var(--red); border-color: var(--red); }
-        .r .btn-view:hover { background: var(--red); color: white; }
+        /* 按鈕樣式：Google Drive (深色底) */
+        .btn-drive {
+            color: white;
+        }
 
-        .g { border-top: 8px solid var(--green); }
-        .g .card-header { background-color: var(--green); }
-        .g .btn-view { color: var(--green); border-color: var(--green); }
-        .g .btn-view:hover { background: var(--green); color: white; }
-
-        .br { border-top: 8px solid var(--brown); }
-        .br .card-header { background-color: var(--brown); }
-        .br .btn-view { color: var(--brown); border-color: var(--brown); }
-        .br .btn-view:hover { background: var(--brown); color: white; }
-
-        .o { border-top: 8px solid var(--orange); }
-        .o .card-header { background-color: var(--orange); }
-        .o .btn-view { color: var(--orange); border-color: var(--orange); }
-        .o .btn-view:hover { background: var(--orange); color: white; }
+        /* 各線按鈕顏色設定 */
+        .bl .btn-drive { background: var(--blue); }
+        .r .btn-drive { background: var(--red); }
+        .g .btn-drive { background: var(--green); }
+        .br .btn-drive { background: var(--brown); }
+        .o .btn-drive { background: var(--orange); }
+        
+        .btn-drive:hover { opacity: 0.9; }
 
         footer {
             text-align: center;
             padding: 40px;
-            color: #888;
-            font-size: 0.9rem;
+            background: #333;
+            color: #ccc;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -136,56 +142,61 @@
 
 <header>
     <h1>跨閱城市</h1>
-    <div class="subtitle">臺北捷運繪本走讀資料庫</div>
+    <p>臺北捷運繪本走讀資料庫</p>
 </header>
 
 <div class="container">
-    <div class="grid-container">
+    <div class="grid">
         
-        <a href="https://www.canva.com/design/DAHDWyPwIzE/raKiSjCDblS8vEa6hdtAGA/edit" target="_blank" class="line-card bl">
-            <div class="card-header">板南線 <span>BL</span></div>
-            <div class="card-content">
-                <h3>城市脈動與文化</h3>
-                <p>穿梭臺北核心地帶，連結現代建築與歷史遺跡，在藍線展開閱讀冒險。</p>
-                <span class="btn-view">進入共備資料</span>
+        <div class="card bl">
+            <span class="line-badge" style="background: var(--blue);">板南線 BL</span>
+            <h2 class="title">城市脈動與文化</h2>
+            <p class="desc">串連臺北核心地標，探索現代化進程與多元文化交織的繪本故事。</p>
+            <div class="button-group">
+                <a href="https://www.canva.com/design/DAHDWyPwIzE/raKiSjCDblS8vEa6hdtAGA/edit" target="_blank" class="btn btn-canva">📖 教案瀏覽</a>
+                <a href="https://drive.google.com/drive/folders/1huTHVP9jR5JNCrHGrnaUo8Jjmj0vmWrh" target="_blank" class="btn btn-drive">📁 資料上傳</a>
             </div>
-        </a>
+        </div>
 
-        <a href="https://www.canva.com/design/DAHDaa_EBl0/WuNJQXcIpvPia8gL6Sqy8w/edit" target="_blank" class="line-card r">
-            <div class="card-header">淡水信義線 <span>R</span></div>
-            <div class="card-content">
-                <h3>歷史長河與自然</h3>
-                <p>從象山出發直達淡水，探索臺北的自然生態與河岸風情。</p>
-                <span class="btn-view">進入共備資料</span>
+        <div class="card r">
+            <span class="line-badge" style="background: var(--red);">淡水信義線 R</span>
+            <h2 class="title">歷史長河與自然</h2>
+            <p class="desc">沿著河岸走過百年時光，從紅樹林到城門，看見大自然的生命力。</p>
+            <div class="button-group">
+                <a href="https://www.canva.com/design/DAHDaa_EBl0/WuNJQXcIpvPia8gL6Sqy8w/edit" target="_blank" class="btn btn-canva">📖 教案瀏覽</a>
+                <a href="https://drive.google.com/drive/folders/1Y2EqO8ialu57J1sm-3wB1zl4NYfPwIdQ" target="_blank" class="btn btn-drive">📁 資料上傳</a>
             </div>
-        </a>
+        </div>
 
-        <a href="https://www.canva.com/design/DAHDaaJ3oWA/E4y866wZPMsoDYeggERHMA/edit" target="_blank" class="line-card g">
-            <div class="card-header">松山新店線 <span>G</span></div>
-            <div class="card-content">
-                <h3>水岸人文與文藝</h3>
-                <p>漫步文教區與公館水岸，結合音樂、藝術與跨世代的繪本故事。</p>
-                <span class="btn-view">進入共備資料</span>
+        <div class="card g">
+            <span class="line-badge" style="background: var(--green);">松山新店線 G</span>
+            <h2 class="title">水岸人文與文藝</h2>
+            <p class="desc">漫步城市綠帶，在水岸與巷弄書香中，感受濃厚的藝術氣息。</p>
+            <div class="button-group">
+                <a href="https://www.canva.com/design/DAHDaaJ3oWA/E4y866wZPMsoDYeggERHMA/edit" target="_blank" class="btn btn-canva">📖 教案瀏覽</a>
+                <a href="https://drive.google.com/drive/folders/1OYosvrbZxsgTzqjbrgg66T18Pkng1Riv" target="_blank" class="btn btn-drive">📁 資料上傳</a>
             </div>
-        </a>
+        </div>
 
-        <a href="https://www.canva.com/design/DAHDaRQXH-0/YKT6ryUc3ORnBb2RJ3SExg/edit" target="_blank" class="line-card br">
-            <div class="card-header">文湖線 <span>BR</span></div>
-            <div class="card-content">
-                <h3>山城探索與科技</h3>
-                <p>搭乘高架運具俯瞰臺北，走入動物園、內湖森林與科技園區。</p>
-                <span class="btn-view">進入共備資料</span>
+        <div class="card o">
+            <span class="line-badge" style="background: var(--orange);">中和新蘆線 O</span>
+            <h2 class="title">庶民信仰與在地</h2>
+            <p class="desc">走進舊城區的煙火氣息，探索廟宇藝術、老街百業與在地故事。</p>
+            <div class="button-group">
+                <a href="https://www.canva.com/design/DAHDaSLTDNw/s9EvnD4bTpVFcDCCQitfhg/edit" target="_blank" class="btn btn-canva">📖 教案瀏覽</a>
+                <a href="https://drive.google.com/drive/folders/1C6MpNxCH1kfzupanPrrZJRV01gLXgKyZ" target="_blank" class="btn btn-drive">📁 資料上傳</a>
             </div>
-        </a>
+        </div>
 
-        <a href="https://www.canva.com/design/DAHDaSLTDNw/s9EvnD4bTpVFcDCCQitfhg/edit" target="_blank" class="line-card o">
-            <div class="card-header">中和新蘆線 <span>O</span></div>
-            <div class="card-content">
-                <h3>庶民信仰與在地</h3>
-                <p>走訪古老市街與廟宇文化，在橘線看見臺北最樸實的人間煙火。</p>
-                <span class="btn-view">進入共備資料</span>
+        <div class="card br">
+            <span class="line-badge" style="background: var(--brown);">文湖線 BR</span>
+            <h2 class="title">山城探索與科技</h2>
+            <p class="desc">搭乘高架運具俯瞰臺北，串連動物園與科技城，展開生態與創新的對話。</p>
+            <div class="button-group">
+                <a href="https://www.canva.com/design/DAHDaRQXH-0/YKT6ryUc3ORnBb2RJ3SExg/edit" target="_blank" class="btn btn-canva">📖 教案瀏覽</a>
+                <a href="https://drive.google.com/drive/folders/1_iq1xzlglLgkq4ImGvFblbtWEtWYmhw_" target="_blank" class="btn btn-drive">📁 資料上傳</a>
             </div>
-        </a>
+        </div>
 
     </div>
 </div>
